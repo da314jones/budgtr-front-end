@@ -1,15 +1,31 @@
-import React from 'react'
+import React from 'react';
 
-export default function Transaction({transaction}) {
+function TransactionDetail({ transaction }) {
+  if (!transaction) return <p>Loading...</p>;
 
   return (
-    <div>
-      <p>{transaction.id}</p>
-      <p>{transaction.category}</p>
-      <p>{transaction.type}</p>
-      <p>{transaction.description}</p>
-      <p>{transaction.amount}</p>
-      <p>{transaction.date}</p>
+    <div className="transaction-detail">
+      <h2>Transaction Detail</h2>
+      <div>
+        <strong>ID:</strong> <span>{transaction.id}</span>
+      </div>
+      <div>
+        <strong>Category:</strong> <span>{transaction.category}</span>
+      </div>
+      <div>
+        <strong>Type:</strong> <span>{transaction.type}</span>
+      </div>
+      <div>
+        <strong>Description:</strong> <span>{transaction.description}</span>
+      </div>
+      <div>
+        <strong>Amount:</strong> <span>{transaction.amount}</span>
+      </div>
+      <div>
+        <strong>Date:</strong> <span>{transaction.date}</span>
+      </div>
     </div>
-  )
+  );
 }
+
+export default TransactionDetail;

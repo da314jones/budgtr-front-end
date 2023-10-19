@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import Transaction from './transaction';
 const API = import.meta.env.VITE_BASE_URL
 
 export default function Transactions() {
@@ -7,8 +8,10 @@ export default function Transactions() {
     useEffect(() => {
         fetch(`${API}/transactions`)
         .then((res) => res.json())
-        .then(transactions => setTransactions(transactions))
-        console.log("API Data:", transactions)
+        .then(transactions => {
+            console.log("API Data:", transactions);
+        setTransactions(transactions);
+        })
         .catch(error => console.log(error))
     }, []);
 
@@ -25,7 +28,7 @@ export default function Transactions() {
           </thead>
           <tbody>
             {transactions.map((transaction, index) => {
-              return <transaction key={index} transaction={transaction} index={index} />;
+return <TransactionDetail key={index} transaction={transaction} index={index} />
             })}
           </tbody>
         </table>
