@@ -122,6 +122,9 @@ export default function TransactionEditForm() {
           <button type="submit">Update Transaction</button>
         </div>
       </form>
+      {/* <Link to={`/transactions/${index}`}>
+        <button>Cancel</button>
+      </Link> */}
     </div>
   );
 }

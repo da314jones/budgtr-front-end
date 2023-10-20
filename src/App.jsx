@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import './App.css'
 import Welcome from './components/Welcome'
+
 import Transactions from './components/TransactionList'
 import TransactionDetail from './components/TransactionDetail'
 import TransactionEditForm from './components/TransactionEditForm'
@@ -13,6 +14,8 @@ function App() {
   return (
   <>
     <Router>
+      <div>
+        {/* <Navbar /> */}
       <Routes>
     <Route exact path="/" element={<Welcome />} />
     <Route exact path="/transactions" element={<Transactions />} />
@@ -21,6 +24,7 @@ function App() {
     <Route path="/transactions/new" element={<TransactionNewForm />} />
     <Route path="*" element={<FourOFour />} />
     </Routes>
+    </div>
     </Router>
     </>
   )

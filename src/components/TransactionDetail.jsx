@@ -12,7 +12,6 @@ function TransactionDetail() {
     fetch(`${API}/transactions/${id}`)
       .then((res) => res.json())
       .then((transactionsData) => {
-        console.log(transactionsData);
         setTransaction(transactionsData);
       })
       .catch(() => navigate("/not-found"));

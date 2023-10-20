@@ -1,20 +1,27 @@
-import React, { useEffect, useState } from 'react'
-import Transaction from './TransactionDetail';
-const API = import.meta.env.VITE_BASE_URL
+import React, { useEffect, useState } from 'react';
+import TransactionDetail from './TransactionDetail'; 
+const API = import.meta.env.VITE_BASE_URL;
 
-//index
 export default function TransactionList() {
-    const [transactions, setTransactions] = useState([]);
+  const [transactions, setTransactions] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        fetch(`${API}/transactions`)
-        .then((res) => res.json())
-        .then(transactions => {
-            console.log("API Data:", transactions);
-        setTransactions(transactions);
-        })
-        .catch(error => console.log(error))
-    }, []);
+  useEffect(() => {
+    fetch(`${API}/transactions`)
+      .then((res) => res.json())
+      .then(transactionsData => {
+        setTransactions(transactionsData);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.log(error);
+        setLoading(false);
+      });
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
   return (
     <div className="transactions">
@@ -28,14 +35,12 @@ export default function TransactionList() {
             </tr>
           </thead>
           <tbody>
-            {transactions.map((transaction, index) => {
-              return <Transaction key={index} transaction={transaction} index={index} />
-            })}
+            {transactions.map((transaction, index) => (
+              <TransactionDetail key={transaction.id || index} transaction={transaction} />
+            ))}
           </tbody>
         </table>
       </section>
     </div>
   );
 }
-
-
