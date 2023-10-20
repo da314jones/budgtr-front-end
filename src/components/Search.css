@@ -1,0 +1,15 @@
+.search-container {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-top: 100px; 
+  }
+  
+  .search-container input {
+    margin-right: 10px;
+  }
+  
+  .search-container button {
+    margin-right: 10px;
+  }
+  
