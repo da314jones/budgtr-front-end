@@ -7,8 +7,28 @@ import TransactionDetail from './components/TransactionDetail'
 import TransactionEditForm from './components/TransactionEditForm'
 import TransactionNewForm from './components/TransactionNewForm'
 import FourOFour from './components/FourOFour'
+import Navbar from './components/Navbar'
 
 function App() {
+  const [transactions, setTransactions] = useState([]);
+  const [filteredTransactions, setFilteredTransactions] = useState([]);
+  const [showTransactions, setShowTransactions] = useState(false);
+  const [loading, setLoading] = useState(true);
+
+  
+    const setLightMode = () => {
+      document.documentElement.classList.remove('dark');
+      localStorage.theme = 'light';
+    }
+  
+    const setDarkMode = () => {
+      document.documentElement.classList.add('dark');
+      localStorage.theme = 'dark';
+    }
+  
+    const setSystemMode = () => {
+      localStorage.removeItem('theme');
+    }
 
   useEffect(() => {
    
@@ -19,33 +39,27 @@ function App() {
     }
   }, []);
 
-  const setLightMode = () => {
-    document.documentElement.classList.remove('dark');
-    localStorage.theme = 'light';
-  }
-
-  const setDarkMode = () => {
-    document.documentElement.classList.add('dark');
-    localStorage.theme = 'dark';
-  }
-
-  const setSystemMode = () => {
-    localStorage.removeItem('theme');
-  }
-
   return (
   <>
     <Router>
       <div>
-        {/* <Navbar /> */}
+        <Navbar setLightMode={setLightMode} setDarkMode={setDarkMode} setSystemMode={setSystemMode}
+        transactions={transactions} setFilteredTransactions={setFilteredTransactions} />
+        <div className='content' >
+          <div className='main' >       
       <Routes>
     <Route exact path="/" element={<Welcome />} />
-    <Route exact path="/transactions" element={<Transactions />} />
+    <Route exact path="/transactions" element={<Transactions transactions={filteredTransactions} />} />
     <Route path="/transactions/:id" element={<TransactionDetail />} />
     <Route path="/transactions/edit" element={<TransactionEditForm />} />
     <Route path="/transactions/new" element={<TransactionNewForm />} />
     <Route path="*" element={<FourOFour />} />
     </Routes>
+    </div>
+    </div>
+    <div className='list' >
+{showTransactions && <Transactions transactions={filteredTransactions} />}
+    </div>
     </div>
     </Router>
     </>

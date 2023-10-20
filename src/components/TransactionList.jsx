@@ -4,7 +4,6 @@ const API = import.meta.env.VITE_BASE_URL;
 
 export default function TransactionList() {
   const [transactions, setTransactions] = useState([]);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetch(`${API}/transactions`)
@@ -16,12 +15,11 @@ export default function TransactionList() {
       .catch(error => {
         console.log(error);
         setLoading(false);
+        setFilteredTransactions(transactions)
       });
-  }, []);
+  }, [transactions]);
 
-  if (loading) {
-    return <div>Loading...</div>;
-  }
+  
 
   return (
     <div className="transactions">
