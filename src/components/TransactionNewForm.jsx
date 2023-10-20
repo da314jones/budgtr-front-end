@@ -1,7 +1,9 @@
-import React from 'react'
-import { Link, useParams, useNavigate }  from "react-router-dom";
+import React, { useState } from 'react'
+import { useNavigate }  from "react-router-dom";
+const API = import.meta.env.VITE_BASE_URL
 
-export default function NewTransactionForm() {
+
+export default function TransactionNewForm() {
   const [newTransaction, setNewTransaction] = useState({
     id: "",
     category: "",
@@ -11,13 +13,13 @@ export default function NewTransactionForm() {
     date: "",
   });
 
-  const navigate = useNavigate;
+  const navigate = useNavigate();
 
   const handleTextChange = (e) => {
-    setNewTransaction({ ...newTransactionForm, [e.target.id]: e.target.value });
+    setNewTransaction({ ...newTransaction, [e.target.id]: e.target.value });
   };
 
-  const addTransaction = () => {
+  const createTransaction = () => {
     const httpOptions = {
       "method" : "POST",
       "body" : JSON.stringify(newTransaction),
@@ -35,25 +37,25 @@ export default function NewTransactionForm() {
   };
 
 const handleSubmit = (e) => {
-  e.prevent.default();
-  addTransaction();
+  e.preventDefault();
+  createTransaction();
 };
   
 return (
   <form onSubmit={handleSubmit} className="new-transaction-form">
     <div>
       <label htmlFor="id">Transaction ID:</label>
-      <input type="text" id="id" name="transactionId" />
+      <input type="text" id="id" name="id" value={newTransaction.id} onChange={handleTextChange} />
     </div>
 
     <div>
       <label htmlFor="category">Category:</label>
-      <input type="text" id="category" name="category" />
+      <input type="text" id="category" name="category" value={newTransaction.category} onChange={handleTextChange} />
     </div>
 
     <div>
       <label htmlFor="type">Type:</label>
-      <select id="type" name="type">
+      <select id="type" name="type" value={newTransaction.type} onChange={handleTextChange} >
         <option value="Deposit">Deposit</option>
         <option value="Payment">Payment</option>
         <option value="Invoice">Invoice</option>
@@ -63,21 +65,21 @@ return (
 
     <div>
       <label htmlFor="description">Description:</label>
-      <input type="text" id="description" name="description" />
+      <input type="text" id="description" name="description" value={newTransaction} onChange={handleTextChange} />
     </div>
 
     <div>
       <label htmlFor="amount">Amount:</label>
-      <input type="number" id="amount" name="amount" step="0.01" />
+      <input type="number" id="amount" name="amount" step="0.01" value={newTransaction} onChange={handleTextChange} />
     </div>
 
     <div>
       <label htmlFor="date">Date:</label>
-      <input type="date" id="date" name="date" />
+      <input type="date" id="date" name="date" value={newTransaction} onChange={handleTextChange} />
     </div>
 
     <div>
-      <button type="submit" >Add Transaction</button>
+      <button type="submit">Add Transaction</button>
     </div>
   </form>
 );

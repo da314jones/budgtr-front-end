@@ -1,20 +1,11 @@
 import React from 'react';
 
-function TransactionDetail({ transaction }) {
+export default function Transaction({ transaction }) {
   if (!transaction) return <p>Loading...</p>;
 
   return (
     <div className="transaction-detail">
-      <h2>Transaction Detail</h2>
-      <div>
-        <strong>ID:</strong> <span>{transaction.id}</span>
-      </div>
-      <div>
-        <strong>Category:</strong> <span>{transaction.category}</span>
-      </div>
-      <div>
-        <strong>Type:</strong> <span>{transaction.type}</span>
-      </div>
+      <h2>{transaction.category}</h2>
       <div>
         <strong>Description:</strong> <span>{transaction.description}</span>
       </div>
@@ -28,4 +19,4 @@ function TransactionDetail({ transaction }) {
   );
 }
 
-export default TransactionDetail;
+
