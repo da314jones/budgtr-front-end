@@ -1,25 +1,19 @@
-import React, { useEffect, useState } from 'react';
-import TransactionDetail from './TransactionDetail'; 
-const API = import.meta.env.VITE_BASE_URL;
+import React from 'react';
+import TransactionRow from './TransactionRow';
+import { useLocation } from 'react-router-dom';
 
-export default function TransactionList() {
-  const [transactions, setTransactions] = useState([]);
+export default function TransactionList({ transactions }) {
+const location = useLocation();
+const queryParams = new URLSearchParams(location.search);
+const search = queryParams.get('search');
 
-  useEffect(() => {
-    fetch(`${API}/transactions`)
-      .then((res) => res.json())
-      .then(transactionsData => {
-        setTransactions(transactionsData);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.log(error);
-        setLoading(false);
-        setFilteredTransactions(transactions)
-      });
-  }, [transactions]);
-
-  
+const filteredTransactions = search
+    ? transactions.filter((transaction) =>
+        transaction.type.toLowerCase().includes(search.toLowerCase()) ||
+        transaction.date.toLowerCase().includes(search.toLowerCase()) ||
+        transaction.category.toLowerCase().includes(search.toLowerCase())
+      )
+    : transactions;
 
   return (
     <div className="transactions">
@@ -27,14 +21,17 @@ export default function TransactionList() {
         <table>
           <thead>
             <tr>
-              <th></th>
-              <th>Take me there</th>
-              <th>See this Transaction</th>
+              <th>Category</th>
+              <th>Type</th>
+              <th>Description</th>
+              <th>Amount</th>
+              <th>Date</th>
+              <th>Details</th>
             </tr>
           </thead>
           <tbody>
-            {transactions.map((transaction, index) => (
-              <TransactionDetail key={transaction.id || index} transaction={transaction} />
+            {filteredTransactions.map((transaction, index) => (
+              <TransactionRow key={transaction.id || index} transaction={transaction} index={index} />
             ))}
           </tbody>
         </table>

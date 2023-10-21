@@ -22,7 +22,7 @@ const handleDelete  = () => {
     const httpOptions = { "method" : "DELETE" };
 
    
-        fetch(`${API}/transactions/${id}`, httpOptions)
+        fetch(`${API}/transactions/${index}`, httpOptions)
         .then((res) => {
             console.log(res)
             alert("Hey - transaction was deleted!");
