@@ -1,0 +1,13 @@
+.search-results table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+}
+
+.search-results th {
+    padding: 10px;
+    border: 1px solid gold;
+    color: gold;
+}

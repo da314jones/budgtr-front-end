@@ -1,0 +1,26 @@
+.navbar-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 100%;
+    width: 100%;
+}
+
+.navbar-container img {
+    width: 350px;
+}
+
+.navbar-navlinks {
+    display: flex;
+    align-items: center;
+}
+
+.navbar-navlinks span {
+    font-family: 'Urbanist', sans-serif;
+    margin-right: 30px;
+    cursor: pointer;
+}
+
+.navbar-navlinks button {
+    cursor: pointer;
+}

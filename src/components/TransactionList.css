@@ -1,0 +1,28 @@
+.transactions-container {
+    height: 700px; 
+    overflow-y: auto;
+    margin-top: 40px;
+  }
+  
+  .transactions-container table {
+    width: 100%;
+    border-collapse: collapse;
+    border: 1px solid black;
+    background-color: black;
+    color: white;
+  }
+  
+  .transactions-container th {
+    padding: 10px;
+    border: 1px solid gold;
+    color: gold;
+  }
+  
+  .header button {
+    background-color: gold;
+    border: none;
+    padding: 10px 20px;
+    color: black;
+    cursor: pointer;
+  }
+  

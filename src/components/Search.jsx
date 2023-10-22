@@ -16,7 +16,23 @@ export default function Search({ transactions, setFilteredTransactions }) {
       
     );
     setFilteredTransactions(filtered);
+    setSearchParams('')
+
   };
+
+  const handleReset = () => {
+    setFilteredTransactions(transactions);
+    navigate(`/transactions`);
+  }
+
+  const handleKeyDown  = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+      console.log()
+    }
+  }
+  
+  
 
   return (
     <div className="search-container">
@@ -25,9 +41,10 @@ export default function Search({ transactions, setFilteredTransactions }) {
         placeholder="Search by type, date, or category"
         value={searchParams}
         onChange={(e) => setSearchParams(e.target.value)}
+        onKeyDown={handleKeyDown}
       />
       <button onClick={handleSearch}>Search</button>
-      <button onClick={() => setFilteredTransactions(transactions)}>Reset</button>
+      <button onClick={handleReset}>Reset</button>
     </div>
   );
 }

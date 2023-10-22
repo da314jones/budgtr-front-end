@@ -2,14 +2,26 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  height: 100vh;
-  background-color: #8f0b0b;
+  height: 100%;
+  width: 65%;
+  color: white;
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 20px;
+.welcome-container h1 {
+  font-family: "Urbanist", sans-serif;
+  font-size: 60px;
+  font-weight: 600;
+  margin-top: 150px;
+}
+
+
+.welcome-container h2 {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  margin-top: 5px;
+  margin-bottom: 40px;
+  word-spacing: 3px;
 }
 
 .navigation-buttons {
@@ -19,8 +31,8 @@ h1 {
 }
 
 .btn {
-  background-color: #4CAF50;
-  color: white;
+  background-color: #4caf50;
+  color: black;
   padding: 14px 20px;
   margin: 8px 0;
   border: none;
@@ -32,4 +44,51 @@ h1 {
 
 .btn:hover {
   background-color: #45a049;
+}
+
+.welcome-container input {
+  width: 100%;
+  height: 40px;
+  border-radius: 5px;
+  background-color: transparent;
+  outline: none;
+  padding-left: 20px;
+  color: white;
+  font-family: 'Urbanist', sans-serif;
+  font-size: 24px;
+}
+
+.input-container .focused {
+  border: 1px solid rgba(82,138,46,255);
+  label {
+    color:rgba(82,138,46,255);
+  }
+}
+
+.outer-container {
+  display: flex;
+  justify-content: center;
+}
+
+.welcome-container button {
+  border-radius: 200px;
+  width: 100%;
+  height: 60px;
+  margin-top: 10px;
+  background-color: rgba(82,138,46,255);
+  font-size: 20px;
+  font-family: "Urbanist", sans-serif;
+}
+
+.input-container {
+  width: 100%;
+  border: 1px solid gray;
+  border-radius: 5px;
+  margin-bottom: 20px;
+  padding-top: 8px;
+}
+
+.input-container label {
+  color: grey;
+  margin: 12px;
 }

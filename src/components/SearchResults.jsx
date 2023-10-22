@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom';
 import TransactionRow from './TransactionRow';
+import './SearchResults.css'
 
-export default function SearchResults({ transactions }) {
+export default function SearchResults({ transactions, index }) {
   const location = useLocation();
   const search = new URLSearchParams(location.search).get('search');
 
 console.log('Search parameter:', search);
-  console.log('Transactions:', transactions); // Add this log
+  console.log('Transactions:', transactions); 
 
   const [filteredTransactions, setFilteredTransactions] = useState([]);
 
@@ -40,6 +41,7 @@ console.log('Search parameter:', search);
               <th>Description</th>
               <th>Amount</th>
               <th>Date</th>
+              <th>Transaction id</th>
               <th>Details</th>
             </tr>
           </thead>

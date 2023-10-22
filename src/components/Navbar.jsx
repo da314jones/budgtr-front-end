@@ -1,25 +1,37 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import Search from './Search';
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import Search from "./Search";
+import "./Navbar.css";
 
-export default function Navbar({ transactions, setFilteredTransactions }) {
-  const toggleDarkMode = () => {
-    if (document.documentElement.classList.contains('dark')) {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    } else {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
+export default function Navbar({
+  transactions,
+  setFilteredTransactions,
+  user,
+  setUser,
+}) {
+  const navigate = useNavigate();
+
+  const handleManageTransactions = () => {
+    if (user.userName) {
+      navigate("/transactions");
     }
   };
 
   return (
-    <nav className="bg-white dark:bg-gray-800 p-4">
-      <Link to="/transactions"><button>All Transactions</button></Link>
-      <button className='instructional'>How To:</button>
-      <button onClick={toggleDarkMode} className="text-white bg-gray-900 dark:bg-gray-100 p-2 rounded">
-        Toggle Dark Mode
-      </button>
+    <nav className="navbar-container">
+      <div>
+        <Link to="/">
+      <img src="/src/assets/budgetlogo.png" alt="logo" />
+                </Link>
+      </div>
+      <div className="navbar-navlinks">
+
+      <span onClick={handleManageTransactions}>Manage Transactions</span>
+      {user.userName ? (
+        <Link to="/transactions/new">Add Transaction</Link>
+      ) : null}
+      <button className="enroll">Get Balanced</button>
+      </div>
     </nav>
   );
 }

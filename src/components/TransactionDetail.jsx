@@ -1,28 +1,30 @@
 import { useState, useEffect } from "react";
 import { Link, useParams, useNavigate } from "react-router-dom";
+import './TransactionDetail.css'
 const API = import.meta.env.VITE_BASE_URL
 
 function TransactionDetail() {
   const [transaction, setTransaction] = useState([]);
-  const { index } = useParams();
+  const { id } = useParams();
   const navigate = useNavigate();
 
 
   useEffect(() => {
+    console.log(id)
     // Fetch transaction data based on the index parameter
-    fetch(`${API}/transactions/${index}`)
+    fetch(`${API}/transactions/${id}`)
       .then((res) => res.json())
       .then((transactionsData) => {
         console.log('transactionsData:', transactionsData, "im right here");
         setTransaction(transactionsData);
       })
       .catch(() => navigate("/not-found"));
-  }, [index, navigate]);
+  }, [id, navigate]);
   
 
   const handleDelete = () => {
     // Perform a DELETE request to delete the transaction
-    fetch(`${API}/transactions/${index}`, { method: "DELETE" })
+    fetch(`${API}/transactions/${id}`, { method: "DELETE" })
       .then((res) => {
         console.log(res);
         alert("Transaction has been deleted!");
@@ -32,8 +34,9 @@ function TransactionDetail() {
   };
 
   return (
-    <div className="TransactionDetail">
+    <div className="detail-container">
       <h2>Transaction Details</h2>
+      <div detail-body>
       <p>
         <strong>Category:</strong> {transaction.category}
       </p>
@@ -49,11 +52,12 @@ function TransactionDetail() {
       <p>
         <strong>Date:</strong> {transaction.date}
       </p>
+      </div>
       <div className="transaction-actions">
         <Link to={`/transactions`}>
           <button>Back</button>
         </Link>
-        <Link to={`/transactions/${index}/edit`}>
+        <Link to={`/transactions/${id}/edit`}>
           <button>Edit</button>
         </Link>
         <button onClick={handleDelete}>Delete</button>

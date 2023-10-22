@@ -3,8 +3,7 @@ import { useParams, useNavigate, Link } from "react-router-dom";
 const API = import.meta.env.VITE_BASE_URL;
 
 export default function TransactionEditForm() {
-  let { index } = useParams();
-
+const { id } = useParams();
   const [transaction, setTransaction] = useState({
     id: "",
     category: "",
@@ -20,14 +19,14 @@ export default function TransactionEditForm() {
   };
 
   useEffect(() => {
-    fetch(`${API}/transactions/${index}`)
+    fetch(`${API}/transactions/${id}`)
       .then((res) => res.json())
       .then((transaction) => {
         console.log(transaction);
         setTransaction(transaction);
       })
       .catch(() => navigate("/not-found"));
-  }, [index, navigate]);
+  }, [id, navigate]);
 
   const updateTransaction = () => {
     const httpOptions = {
@@ -37,10 +36,10 @@ export default function TransactionEditForm() {
         "Content-type": "application/json",
       },
     };
-    fetch(`${API}/transactions/${index}`, httpOptions)
+    fetch(`${API}/transactions/${id}`, httpOptions)
       .then(() => {
         alert(`${transaction.category} has been updated!`);
-        navigate(`/transaction/${index}`);
+        navigate(`/transactions/${id}`);
       })
       .catch((err) => console.error(err));
   };
@@ -54,10 +53,6 @@ export default function TransactionEditForm() {
     <div>
       <h1>Update Transaction</h1>
       <form onSubmit={handleSubmit} className="update-transaction-form">
-        <div>
-          <label htmlFor="id">Transaction ID:</label>
-          <input type="text" id="id" name="id" value={transaction.id} />
-        </div>
         <div>
           <label htmlFor="category">Category:</label>
           <input
@@ -122,9 +117,9 @@ export default function TransactionEditForm() {
           <button type="submit">Update Transaction</button>
         </div>
       </form>
-      {/* <Link to={`/transactions/${index}`}>
+      <Link to={`/transactions/${id}`}>
         <button>Cancel</button>
-      </Link> */}
+      </Link>
     </div>
   );
 }
