@@ -68,3 +68,7 @@ button.final-third  {
   background-color: rgba(82,138,46,255);
 }
 
+div.input-container {
+  color: white;
+  background-color: grey
+}
