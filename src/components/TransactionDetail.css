@@ -1,35 +1,70 @@
 body, html {
-    height: 100%;
-    margin: 0;
-  }
-  
-  .detail-container {
-    font-size: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  .detail-body {
-    background: #f8f8f8;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 0px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-  
-  .transaction-actions {
-    display: flex;
-    gap: 35px; 
-  }
-
-  .transaction-actions button {
-    padding: 8px 12px;   
-    font-size: 14px;    
-    border-radius: 4px; 
-    margin: 0 30px;
+  height: 100%;
+  margin: 0;
 }
+
+h2 {
+  font-family: 'Urbanist', sans-serif;
+  font-size: 40px;
+  font-weight: 800;
+  margin-bottom: 20px;
+  word-spacing: 3px;
+}
+
+.detail-container {
+  font-size: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 40px;
+  padding: 20px;
+  box-sizing: border-box;
+  width: 100%;
+}
+
+.detail-body {
+  background-color: black;
+  border: 1px solid grey;
+  text-align: center;
+  border-radius: 8px;
+  padding: 40px;
+  width: 800px; 
+  margin: auto;
+  margin-bottom: 20px;
+  display: flex;
+flex-direction: column;  align-items: center;
+  border: 2px solid gold;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.transactions-actions a{
+  margin-top: 100px;
+}
+
+.first-third, .second-third, .final-third {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+button.first-third  {
+  color: white;
+  background-color: rgba(82,138,46,255);
+
+}
+
+button.second-third  {
+  color: white;
+
+  background-color: rgba(82,138,46,255);
+
+}
+
+button.final-third  {
+  color: white;
+  background-color: rgba(82,138,46,255);
+}
+

@@ -25,22 +25,19 @@ export default function TransactionList({ transactions }) {
     }
   }, [search, transactions]);
 
-  // Calculate total pages
   const totalPages = Math.ceil(filteredTransactions.length / itemsPerPage);
 
-  // Get current items
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentItems = filteredTransactions.slice(indexOfFirstItem, indexOfLastItem);
 
-  // Change page
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
     <div className="transactions-container">
       <div className="header">
-        {search ? <h2>Search Results for "{search}"</h2> : <h2>Transactions</h2>}
-        <button onClick={() => navigate('/transactions/new')}>Create New Transaction</button>
+        {search ? <h2>Search Results for "{search}"</h2> : <h1>My Transactions</h1>}
+        <button className='create-button' onClick={() => navigate('/transactions/new')}>New</button>
       </div>
       {currentItems.length === 0 ? (
         <p>No results found.</p>
@@ -64,7 +61,7 @@ export default function TransactionList({ transactions }) {
               ))}
             </tbody>
           </table>
-          <div>
+          <div className='table-buttons'>
             <button onClick={() => paginate(1)} disabled={currentPage === 1}>
               First
             </button>

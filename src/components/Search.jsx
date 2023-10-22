@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import './Search.css'
 
 export default function Search({ transactions, setFilteredTransactions }) {
   const [searchParams, setSearchParams] = useState('');

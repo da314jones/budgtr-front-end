@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
+import './TransactionEditForm.css'
 const API = import.meta.env.VITE_BASE_URL;
 
 export default function TransactionEditForm() {
-const { id } = useParams();
+  const { id } = useParams();
   const [transaction, setTransaction] = useState({
     id: "",
     category: "",
@@ -12,8 +13,8 @@ const { id } = useParams();
     amount: "",
     date: "",
   });
-
   const navigate = useNavigate();
+
   const handleTextChange = (e) => {
     setTransaction({ ...transaction, [e.target.id]: e.target.value });
   };
@@ -21,10 +22,7 @@ const { id } = useParams();
   useEffect(() => {
     fetch(`${API}/transactions/${id}`)
       .then((res) => res.json())
-      .then((transaction) => {
-        console.log(transaction);
-        setTransaction(transaction);
-      })
+      .then((transaction) => setTransaction(transaction))
       .catch(() => navigate("/not-found"));
   }, [id, navigate]);
 
@@ -36,9 +34,10 @@ const { id } = useParams();
         "Content-type": "application/json",
       },
     };
+
     fetch(`${API}/transactions/${id}`, httpOptions)
       .then(() => {
-        alert(`${transaction.category} has been updated!`);
+        alert('Transaction updated!');
         navigate(`/transactions/${id}`);
       })
       .catch((err) => console.error(err));
@@ -50,12 +49,13 @@ const { id } = useParams();
   };
 
   return (
-    <div>
-      <h1>Update Transaction</h1>
-      <form onSubmit={handleSubmit} className="update-transaction-form">
-        <div>
+    <div className="detail-container">
+      <h2>Update Transaction</h2>
+      <form onSubmit={handleSubmit} className="detail-body">
+        <div className="input-container">
           <label htmlFor="category">Category:</label>
           <input
+            className="input-field"
             type="text"
             id="category"
             name="category"
@@ -63,10 +63,10 @@ const { id } = useParams();
             onChange={handleTextChange}
           />
         </div>
-
-        <div>
+        <div className="input-container">
           <label htmlFor="type">Type:</label>
           <select
+            className="input-field"
             id="type"
             name="type"
             value={transaction.type}
@@ -78,10 +78,10 @@ const { id } = useParams();
             <option value="Withdrawal">Withdrawal</option>
           </select>
         </div>
-
-        <div>
+        <div className="input-container">
           <label htmlFor="description">Description:</label>
           <input
+            className="input-field"
             type="text"
             id="description"
             name="description"
@@ -89,10 +89,10 @@ const { id } = useParams();
             onChange={handleTextChange}
           />
         </div>
-
-        <div>
+        <div className="input-container">
           <label htmlFor="amount">Amount:</label>
           <input
+            className="input-field"
             type="number"
             id="amount"
             name="amount"
@@ -101,10 +101,10 @@ const { id } = useParams();
             onChange={handleTextChange}
           />
         </div>
-
-        <div>
+        <div className="input-container">
           <label htmlFor="date">Date:</label>
           <input
+            className="input-field"
             type="date"
             id="date"
             name="date"
@@ -112,14 +112,13 @@ const { id } = useParams();
             onChange={handleTextChange}
           />
         </div>
-
-        <div>
+        <div className="transaction-actions">
           <button type="submit">Update Transaction</button>
+          <Link to={`/transactions/${id}`}>
+            <button>Cancel</button>
+          </Link>
         </div>
       </form>
-      <Link to={`/transactions/${id}`}>
-        <button>Cancel</button>
-      </Link>
     </div>
   );
 }

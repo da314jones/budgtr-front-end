@@ -26,10 +26,40 @@ body, html {
     display: flex;
     gap: 35px; 
   }
-
+  
   .transaction-actions button {
     padding: 8px 12px;   
     font-size: 14px;    
     border-radius: 4px; 
     margin: 0 30px;
-}
+  }
+  
+  .input-field {
+    width: 80%;
+    height: 40px;
+    margin-right: 20px; 
+    border-radius: 5px;
+    border: 1px solid grey;
+    outline: none;
+    padding-left: 20px;
+    background-color: grey;
+    color: white;
+    font-size: 24px;
+  }
+  
+  .detail-body button {
+    font-family: 'Urbanist', sans-serif;
+    background-color: rgba(82,138,46,255);
+    color: white;
+    padding: 10px 20px;  
+    margin: 8px 5px;
+    border: none;
+    cursor: pointer;
+    border-radius: 200px;
+    font-size: 1.1rem;
+  }
+  
+  .detail-body button:hover {
+    background-color: #45a049;
+  }
+  

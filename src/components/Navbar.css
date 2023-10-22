@@ -22,5 +22,10 @@
 }
 
 .navbar-navlinks button {
+    font-family: 'Urbanist', sans-serif;
     cursor: pointer;
+    border-radius: 20px;
+    background-color: rgba(82,138,46,255);
+    color: white;
 }
+

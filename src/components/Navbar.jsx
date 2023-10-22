@@ -30,7 +30,9 @@ export default function Navbar({
       {user.userName ? (
         <Link to="/transactions/new">Add Transaction</Link>
       ) : null}
+      <Link to="/enroll-now">
       <button className="enroll">Get Balanced</button>
+      </Link>
       </div>
     </nav>
   );

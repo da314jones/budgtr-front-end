@@ -10,6 +10,7 @@ import FourOFour from './components/FourOFour';
 import Navbar from './components/Navbar';import SearchResults from './components/SearchResults';
 import Search from './components/Search';
 import SplashImage from './components/SplashImage';
+import Enroll from './components/Enroll';
 const API = import.meta.env.VITE_BASE_URL;
 
 function App() {
@@ -66,6 +67,8 @@ function App() {
               <div className="main">
                 <Routes>
                   <Route exact path="/" element={<Welcome setUser={setUser} />} />
+                  <Route exact path="/enroll-now" element={<Enroll setUser={setUser} />} />
+                  
                   <Route
                     exact
                     path="/transactions"

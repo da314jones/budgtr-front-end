@@ -3,13 +3,39 @@
     justify-content: flex-start;
     align-items: center;
     margin-top: 100px; 
-  }
-  
-  .search-container input {
-    margin-right: 10px;
-  }
-  
-  .search-container button {
-    margin-right: 10px;
-  }
-  
+    color: white;
+  font-family: "Urbanist", sans-serif;
+  }  
+
+.search-container input {
+  width: 80%;
+  height: 40px;
+  margin-right: 20px; 
+  border-radius: 5px;
+  border: 1px solid grey;
+  outline: none;
+  padding-left: 20px;
+  color: white;
+  font-size: 24px;
+}
+
+.search-container button {
+  font-family: 'Urbanist', sans-serif;
+  background-color: rgba(82,138,46,255);
+  color: white;
+  padding: 10px 20px;  
+  margin: 8px 5px;
+  border: none;
+  cursor: pointer;
+  border-radius: 200px;
+  font-size: 1.1rem;
+  width: ;
+  margin-top: 10px;  
+
+}
+
+.search-container button:hover {
+  background-color: #45a049;
+}
+
+

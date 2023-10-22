@@ -1,5 +1,7 @@
 .transactions-container {
-    height: 700px; 
+  display: flex;
+  flex-direction: column; 
+    max-height: 800px; 
     overflow-y: auto;
     margin-top: 40px;
   }
@@ -7,22 +9,61 @@
   .transactions-container table {
     width: 100%;
     border-collapse: collapse;
-    border: 1px solid black;
-    background-color: black;
+    border: 1px solid grey;
+    background-color: transparent;
     color: white;
   }
   
+  .transactions-container h1, .transactions-container h2 {
+    font-family: "Urbanist", sans-serif;
+  font-weight: 600;
+text-align: center;  justify-content: center;
+  }
+
   .transactions-container th {
     padding: 10px;
     border: 1px solid gold;
     color: gold;
+    width: 20%;
+  text-align: center;  /* Center the text horizontally */
+  vertical-align: middle; 
+  }
+
+  .transactions-container tr {
+    border-bottom: 2px solid grey;
   }
   
+  .transactions-container td {
+    font-size: 18px; 
+    padding: 10px;  
+    text-align: center;  
+  vertical-align: middle;
+}
+
   .header button {
-    background-color: gold;
+    background-color: rgba(82,138,46,255);
     border: none;
     padding: 10px 20px;
-    color: black;
+    color: white;
     cursor: pointer;
+    max-width: 150px;
+    width: 200px;
+    border-radius: 20px;
+    font-family: "Urbanist", sans-serif;
+
   }
   
+  .create-button {
+    width: 150px;
+    height: 40px;
+    margin: 20px;
+  }
+
+  .table-buttons {
+    display: flex;
+    margin: 10px;
+  }
+
+  .transactions-container .table-buttons button {
+    margin-right: 10px; 
+  }

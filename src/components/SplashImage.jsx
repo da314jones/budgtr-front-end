@@ -6,7 +6,7 @@ export default function SplashImage() {
     const { pathname } = useLocation();
 console.log(pathname);
 
-  return pathname === "/" ? (
+  return pathname === "/" || pathname === "/enroll-now" ?  (
     <div className='image-container'>
 
       <div className='main-image'></div>
