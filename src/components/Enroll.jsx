@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 const API = import.meta.env.VITE_BASE_URL;
 
-// import "./Welcome.css";
 
 export default function Enroll({ setUser }) {
 const [usernameFocused, setUsernameFocused] = useState("");
