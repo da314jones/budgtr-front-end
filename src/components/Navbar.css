@@ -19,13 +19,21 @@
     font-family: 'Urbanist', sans-serif;
     margin-right: 30px;
     cursor: pointer;
+    font-size: 24px;
 }
 
 .navbar-navlinks button {
     font-family: 'Urbanist', sans-serif;
     cursor: pointer;
-    border-radius: 20px;
-    background-color: rgba(82,138,46,255);
-    color: white;
+    border-radius: 100px;
+    background-color: transparent;
+    color: rgba(82,138,46,255);
+    border: 1px solid lightgrey;
+    font-size: 24px;
+    
 }
 
+.navbar-navlinks button:hover {
+    background-color: rgba(82,138,46,255);
+    color: lightgray;
+}
