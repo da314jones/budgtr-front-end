@@ -53,19 +53,19 @@ flex-direction: column;  align-items: center;
 button.first-third  {
   color: white;
   background-color: rgba(82,138,46,255);
-
+  cursor: pointer;
 }
 
 button.second-third  {
   color: white;
-
   background-color: rgba(82,138,46,255);
-
+  cursor: pointer;
 }
 
 button.final-third  {
   color: white;
   background-color: rgba(82,138,46,255);
+  cursor: pointer;
 }
 
 div.input-container {

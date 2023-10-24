@@ -23,7 +23,6 @@ body, html {
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 0px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     border: 3px solid gold;
   }
   
@@ -97,9 +96,6 @@ body, html {
   }
 
 form.detail-body input, label {
-color: black;
+color: white;
 }
 
-form.detail-body label {
-  color: black;
-}

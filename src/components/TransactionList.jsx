@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
 import TransactionRow from './TransactionRow';
+import Search from './Search';
 import './TransactionList.css';
 
 export default function TransactionList({ transactions }) {
@@ -34,7 +35,13 @@ export default function TransactionList({ transactions }) {
   const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
   return (
+    <>
+    <Search
+              transactions={transactions}
+              setFilteredTransactions={setFilteredTransactions}
+            />
     <div className="transactions-container">
+
       <div className="header">
         {search ? <h2>Search Results for "{search}"</h2> : <h1>My Transactions</h1>}
         <button className='create-button' onClick={() => navigate('/transactions/new')}>New</button>
@@ -78,5 +85,6 @@ export default function TransactionList({ transactions }) {
         </section>
       )}
     </div>
+    </>
   );
 }

@@ -4,7 +4,7 @@
     max-height: 600px; 
     overflow-y: auto;
     margin-top: 40px;
-  }
+  padding: 0 15%;  }
   
   .transactions-container table {
     width: 100%;

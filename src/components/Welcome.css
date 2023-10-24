@@ -5,23 +5,20 @@
   height: 100%;
   width: 65%;
   color: white;
-}
-
-.welcome-container h1 {
-  font-family: "Urbanist", sans-serif;
+  & h1 {
+    font-family: "Urbanist", sans-serif;
   font-size: 60px;
   font-weight: 600;
   margin-top: 150px;
-}
-
-
-.welcome-container h2 {
-  font-family: 'Urbanist', sans-serif;
+  }
+  & h2 {
+    font-family: 'Urbanist', sans-serif;
   font-size: 20px;
   font-weight: 400;
   margin-top: 5px;
   margin-bottom: 40px;
   word-spacing: 3px;
+  }
 }
 
 .navigation-buttons {
@@ -89,6 +86,6 @@
 }
 
 .input-container label {
-  color: grey;
+  color: lightgrey;
   margin: 12px;
 }

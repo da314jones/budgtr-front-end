@@ -58,12 +58,7 @@ function App() {
               transactions={transactions}
               setFilteredTransactions={setFilteredTransactions}
             />
-            <Search
-              transactions={transactions}
-              setFilteredTransactions={setFilteredTransactions}
-            />
-
-            <div className="content">
+                        <div className="content">
               <div className="main">
                 <Routes>
                   <Route exact path="/" element={<Welcome setUser={setUser} />} />
@@ -73,7 +68,7 @@ function App() {
                     exact
                     path="/transactions"
                     element={
-                      <Transactions transactions={filteredTransactions} />
+                      <Transactions transactions={filteredTransactions} setFilteredTransactions={setFilteredTransactions} />
                     }
                   />
                   <Route
