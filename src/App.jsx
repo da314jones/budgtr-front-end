@@ -7,7 +7,7 @@ import TransactionDetail from './components/TransactionDetail';
 import TransactionEditForm from './components/TransactionEditForm';
 import TransactionNewForm from './components/TransactionNewForm';
 import FourOFour from './components/FourOFour';
-import NavBar from './components/NavBar';
+import Navigation from './components/Navigation';
 import SearchResults from './components/SearchResults';
 import SplashImage from './components/SplashImage';
 import Enroll from './components/Enroll';
@@ -52,7 +52,7 @@ function App() {
       <Router>
         <div className="main-container">
           <div className='left-container'>
-            <NavBar
+            <Navigation
               user={user}
               setUser={setUser}
               transactions={transactions}

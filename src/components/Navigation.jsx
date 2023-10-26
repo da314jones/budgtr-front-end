@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Search from "./Search";
-import "./NavBar.css";
+import "./Navigation.css";
 
-export default function Navbar({
+export default function Navigation({
   transactions,
   setFilteredTransactions,
   user,
