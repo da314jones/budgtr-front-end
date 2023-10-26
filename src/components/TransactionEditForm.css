@@ -15,7 +15,7 @@ body, html {
   }
   
   .detail-body {
-    background: ;
+    background: #f8f8f8;
     border-radius: 8px;
     padding: 20px;
     margin-bottom: 0px;
@@ -39,8 +39,10 @@ body, html {
     height: 40px;
     margin-right: 20px; 
     border-radius: 5px;
+    border: 1px solid grey;
     outline: none;
     padding-left: 20px;
+    background-color: grey;
     color: white;
     font-size: 24px;
   }
