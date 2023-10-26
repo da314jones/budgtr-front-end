@@ -7,8 +7,8 @@ import TransactionDetail from './components/TransactionDetail';
 import TransactionEditForm from './components/TransactionEditForm';
 import TransactionNewForm from './components/TransactionNewForm';
 import FourOFour from './components/FourOFour';
-import Navbar from './components/Navbar';import SearchResults from './components/SearchResults';
-import Search from './components/Search';
+import NavBar from './components/NavBar';
+import SearchResults from './components/SearchResults';
 import SplashImage from './components/SplashImage';
 import Enroll from './components/Enroll';
 const API = import.meta.env.VITE_BASE_URL;
@@ -52,7 +52,7 @@ function App() {
       <Router>
         <div className="main-container">
           <div className='left-container'>
-            <Navbar
+            <NavBar
               user={user}
               setUser={setUser}
               transactions={transactions}

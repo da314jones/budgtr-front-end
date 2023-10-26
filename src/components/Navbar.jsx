@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import Search from "./Search";
-import "./Navbar.css";
+import "./NavBar.css";
 
 export default function Navbar({
   transactions,
