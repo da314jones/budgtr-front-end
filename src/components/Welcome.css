@@ -45,6 +45,7 @@
 
 .welcome-container input {
   width: 100%;
+  max-width: 97%;
   height: 40px;
   border-radius: 5px;
   background-color: transparent;
