@@ -1,58 +1,35 @@
-body, html {
-    height: 100%;
-    margin: 0;
-  }
+body,
+html {
+  height: 100%;
+  margin: 0;
+}
 
-  .detail-container h1 {
-    font-size: 24;
-  }
-  
-  .detail-container {
-    font-size: 24px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-top: 40px;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  .detail-body {
-    background: ;
-    border-radius: 8px;
-    padding: 20px;
-    margin-bottom: 0px;
-    border: 3px solid gold;
-  }
-  
-  .transaction-actions {
-    display: flex;
-    gap: 35px; 
-  }
-  
-  .transaction-actions button {
-    padding: 8px 12px;   
-    font-size: 14px;    
-    border-radius: 4px; 
-    margin: 0 30px;
-  }
-  
-  .input-field {
-    width: 80%;
-    height: 40px;
-    margin-right: 20px; 
-    border-radius: 5px;
-    border: 1px solid grey;
-    outline: none;
-    padding-left: 20px;
-    color: white;
-    font-size: 24px;
-  }
-  
-  .detail-body button {
-    font-family: 'Urbanist', sans-serif;
-    background-color: rgba(82,138,46,255);
+.detail-container h1 {
+  font-size: 24;
+}
+
+.transaction-actions {
+  display: flex;
+  gap: 35px;
+}
+
+.transaction-actions button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border-radius: 4px;
+  margin: 0 30px;
+}
+
+.new-form-body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 70%;
+}
+
+.new-form-body button {
+  font-family: "Urbanist", sans-serif;
+  background-color: rgba(82,138,46,255);
     color: white;
     padding: 10px 20px;  
     margin: 8px 5px;
@@ -60,17 +37,58 @@ body, html {
     cursor: pointer;
     border-radius: 200px;
     font-size: 1.1rem;
+    width: 50%;
+    min-width: fit-content;
   }
-  
-  .detail-body button:hover {
+
+  .new-form-body button:hover {
     background-color: #45a049;
   }
-  
+
   h1 {
     font-size: 24;
   }
 
-  input#category.input-field {
+  .form-input-container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    border: 1px solid gray;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    padding-top: 8px;
+  }
+
+  .form-input-container label {
+    font-family: "Urbanist", sans-serif;
+    color: lightgrey;
+    padding: 0px 0px 0px 8px;
+    font-size: 22px;
+}
+
+.form-input-container input {
+  font-family: "Urbanist", sans-serif;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  height: 40px;
+  padding: 0px 20px 6px 15px;
+  font-size: 26px;
+  }
+
+  .new-type-input select {
+    font-family: "Urbanist", sans-serif;
+    background-color: transparent;
+    border: none;
+    margin-right: 20px;
+    padding: 0px 20px 6px 10px;
+    height: 40px;
+    box-sizing: border-box;
+    font-size: 26px;
+  }
+
+  /* input#category.input-field {
     background-color: lightgray;
     color: black;
   }
@@ -96,6 +114,5 @@ body, html {
   }
 
 form.detail-body input, label {
-color: white;
-}
-
+color: white; 
+}*/
